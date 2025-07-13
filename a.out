@@ -1,0 +1,77 @@
+#! /usr/local/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/lib/ivl/v2009.vpi";
+S_0x18f8e3a0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x18f8e530 .scope module, "tb_encoder_4to2" "tb_encoder_4to2" 3 1;
+ .timescale 0 0;
+v0x18fa4190_0 .var "in", 3 0;
+v0x18fa4250_0 .net "out", 1 0, L_0x18fa4d00;  1 drivers
+S_0x18f69580 .scope module, "uut" "encoder_4to2" 3 4, 4 1 0, S_0x18f8e530;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /OUTPUT 2 "out";
+v0x18f69760_0 .net *"_ivl_1", 0 0, L_0x18fa4320;  1 drivers
+L_0x7f6a27e180a8 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x18fa34e0_0 .net/2u *"_ivl_10", 1 0, L_0x7f6a27e180a8;  1 drivers
+v0x18fa35c0_0 .net *"_ivl_13", 0 0, L_0x18fa46b0;  1 drivers
+L_0x7f6a27e180f0 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x18fa36b0_0 .net/2u *"_ivl_14", 1 0, L_0x7f6a27e180f0;  1 drivers
+L_0x7f6a27e18138 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x18fa3790_0 .net/2u *"_ivl_16", 1 0, L_0x7f6a27e18138;  1 drivers
+v0x18fa38c0_0 .net *"_ivl_18", 1 0, L_0x18fa4810;  1 drivers
+L_0x7f6a27e18018 .functor BUFT 1, C4<11>, C4<0>, C4<0>, C4<0>;
+v0x18fa39a0_0 .net/2u *"_ivl_2", 1 0, L_0x7f6a27e18018;  1 drivers
+v0x18fa3a80_0 .net *"_ivl_20", 1 0, L_0x18fa49a0;  1 drivers
+v0x18fa3b60_0 .net *"_ivl_22", 1 0, L_0x18fa4b70;  1 drivers
+v0x18fa3cd0_0 .net *"_ivl_5", 0 0, L_0x18fa43f0;  1 drivers
+L_0x7f6a27e18060 .functor BUFT 1, C4<10>, C4<0>, C4<0>, C4<0>;
+v0x18fa3db0_0 .net/2u *"_ivl_6", 1 0, L_0x7f6a27e18060;  1 drivers
+v0x18fa3e90_0 .net *"_ivl_9", 0 0, L_0x18fa44f0;  1 drivers
+v0x18fa3f70_0 .net "in", 3 0, v0x18fa4190_0;  1 drivers
+v0x18fa4050_0 .net "out", 1 0, L_0x18fa4d00;  alias, 1 drivers
+L_0x18fa4320 .part v0x18fa4190_0, 3, 1;
+L_0x18fa43f0 .part v0x18fa4190_0, 2, 1;
+L_0x18fa44f0 .part v0x18fa4190_0, 1, 1;
+L_0x18fa46b0 .part v0x18fa4190_0, 0, 1;
+L_0x18fa4810 .functor MUXZ 2, L_0x7f6a27e18138, L_0x7f6a27e180f0, L_0x18fa46b0, C4<>;
+L_0x18fa49a0 .functor MUXZ 2, L_0x18fa4810, L_0x7f6a27e180a8, L_0x18fa44f0, C4<>;
+L_0x18fa4b70 .functor MUXZ 2, L_0x18fa49a0, L_0x7f6a27e18060, L_0x18fa43f0, C4<>;
+L_0x18fa4d00 .functor MUXZ 2, L_0x18fa4b70, L_0x7f6a27e18018, L_0x18fa4320, C4<>;
+    .scope S_0x18f8e530;
+T_0 ;
+    %vpi_call/w 3 7 "$dumpfile", "encoder_4to2.vcd" {0 0 0};
+    %vpi_call/w 3 8 "$dumpvars" {0 0 0};
+    %vpi_call/w 3 9 "$monitor", "Time = %0t | in = %b | out = %b", $time, v0x18fa4190_0, v0x18fa4250_0 {0 0 0};
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x18fa4190_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v0x18fa4190_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 4, 0, 4;
+    %store/vec4 v0x18fa4190_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 8, 0, 4;
+    %store/vec4 v0x18fa4190_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x18fa4190_0, 0, 4;
+    %delay 10, 0;
+    %vpi_call/w 3 16 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "testbench.sv";
+    "design.sv";
